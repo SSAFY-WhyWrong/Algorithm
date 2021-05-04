@@ -1,0 +1,17 @@
+import java.util.*;
+
+class Solution {
+    public String solution(String[] p, String[] cc) {
+		Arrays.sort(p);
+        Arrays.sort(cc);
+        int i = 0;
+       for(String c : cc){
+           if(p[i].equals(c)){
+               i++;
+               continue;
+           }
+           return p[i];
+       }
+        return p[p.length - 1];
+    }
+}
