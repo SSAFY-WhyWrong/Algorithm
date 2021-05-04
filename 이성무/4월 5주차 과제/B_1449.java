@@ -20,7 +20,7 @@ public class B_1449 {
 		array = new boolean[1001];
 		value = new int[N];
 		st = new StringTokenizer(br.readLine(), " ");
-
+//
 		for (int i = 0; i < N; i++) {
 			value[i] = Integer.parseInt(st.nextToken());
 		}
