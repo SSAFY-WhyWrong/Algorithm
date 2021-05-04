@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
-
+//
 public class 카카오_2018_1차_비밀지도 {
 	static int n;
 	static int[] arr1, arr2, plus;
