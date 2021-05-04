@@ -1,8 +1,18 @@
 # 맞는데 왜 틀려 :question:
 ---
+
+### :page_facing_up: 이번 주 과제
+* 프로그래머스 네트워크 : https://programmers.co.kr/learn/courses/30/lessons/43162
+* 프로그래머스 완주하지 못한 선수 : https://programmers.co.kr/learn/courses/30/lessons/42576
+* 백준 3079 입국심사 : https://www.acmicpc.net/problem/3079
+
+
+
+---
+
 ### :closed_book: Study Rule
 * 과제는 가급적이면 모이기 전 날까지 올릴 수 있도록 한다. 
-* 문제를 푼 뒤에는 문제 풀이를 반드시 정리한다
+* 과제의 경우 문제 풀이를 반드시 정리한다
 * 과제는 기본적으로 주어진 문제 3개 + 자율 문제 2개
 
 ---
