@@ -29,7 +29,7 @@ public class Programmers_Network {
 	}
 
 	public static int solution(int n, int[][] computers) {
-		int answer = 0;
+		int answer = n;
 
 		root = new int[n+1];
 		//makeset
@@ -40,7 +40,7 @@ public class Programmers_Network {
 			for(int j=0; j<n; j++){
 				if(i != j && computers[i][j]==1){
 					if(unionSet(i, j))
-						answer++;
+						answer--;
 				}
 			}
 		}
