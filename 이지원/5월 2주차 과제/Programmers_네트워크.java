@@ -2,9 +2,7 @@ package day_0505;
 import java.util.*;
 
 public class Programmers_네트워크 {
-
 	static boolean[] visited;
-
 	public int solution(int n, int[][] computers) {
 		int answer = 0;
 		visited = new boolean[n];
