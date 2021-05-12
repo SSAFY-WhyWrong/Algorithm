@@ -1,0 +1,54 @@
+import java.util.Arrays;
+import java.util.PriorityQueue;
+
+class Solution {
+    public int[] solution(String s) {
+        int[] answer = new  int [100001];
+        String str = new String();
+        for(int i = 0; i < s.length(); i++){
+            char num = s.charAt(i);
+            if('0' <=  num && num <= '9'){
+                str += num;
+                
+            }else {
+                if(!str.equals("")){
+                    answer[Integer.parseInt(str)]++;
+                }
+                str = "";
+            }
+        }
+        PriorityQueue<Pair> q = new PriorityQueue<>();
+        for(int i = 0; i < 100001; i++){
+            if(answer[i] != 0)
+            q.add(new Pair(i, answer[i]));
+        }
+        int len = q.size();
+        int [] ans = new int[len];
+        int i = 0;
+        while(!q.isEmpty()){
+            Pair ss = q.poll();
+             ans[i] = ss.num;
+            i++;
+        }
+        //System.out.print(Arrays.toString(ans));
+        return ans;
+    }
+  static  class Pair implements Comparable<Pair>{
+    int num;
+    int cnt;
+    Pair(int num, int cnt){
+        this.num = num;
+        this.cnt = cnt;
+    }
+    @Override
+    public int compareTo(Pair o) {
+    	// TODO Auto-generated method stub
+    	return o.cnt - this.cnt;
+    }
+    
+}
+}
+해결 전략
+1. 숫자 별로 파싱 후 배열을 통한 갯수 세기
+2. PriorityQueue에 add를 통해 내림차순 
+3. Queue사이즈 만큼 할당후 poll로 넣어 답을 제출한다.
