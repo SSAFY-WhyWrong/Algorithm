@@ -1,7 +1,7 @@
 package 성공;
 
 import java.util.ArrayList;
-
+//
 public class 완주하지못한선수 {
 	public String solution(String[] participant, String[] completion) {
 		String answer = "";

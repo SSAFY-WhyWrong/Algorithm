@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-
+//
 public class B_3079 {
 	//지나간 시간의 최저 최고 에서 절반값을 대입해서 사람이 얼마나 그 시간에 지나가는지 계산 
 	//답이 인원보다 작은지 확인하고 작으면 하한으로 잡고 다시 반절 계산해서 반복

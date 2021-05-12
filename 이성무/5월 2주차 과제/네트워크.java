@@ -1,7 +1,7 @@
 package 성공;
 
 public class 네트워크 {
-
+//
 	private static int[] net;
 	//DisjointSet
 	//모두 자기 자신을 갖게 만들어준다.
