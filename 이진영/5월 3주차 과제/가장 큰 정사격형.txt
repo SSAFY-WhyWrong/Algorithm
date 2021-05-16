@@ -1,0 +1,61 @@
+package B1915가장큰정사각형;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main2 {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		StringTokenizer st;
+
+		st = new StringTokenizer(br.readLine(), " ");
+		int r = Integer.parseInt(st.nextToken());
+		int c = Integer.parseInt(st.nextToken());
+		int [][] arr = new int[r + 1][c + 1];
+		int [][] mem = new int[r + 1][c + 1];
+		for(int i = 1; i <= r; i++) {
+			String str = br.readLine();
+			for(int j = 1; j <= c; j++) {
+				arr[i][j] = str.charAt(j - 1) - '0';
+			}
+		}
+
+		for(int i = 1; i <= r; i++) {
+			for(int j = 1; j <= c; j++) {
+				mem[i][j] = arr[i][j] + mem[i][j - 1]+ mem[i - 1][j] - mem[i - 1][j - 1] ;
+			}
+		}
+
+		int res = 0;
+		if(mem[r][c] == 0) {
+			res = 0;
+			System.out.println(res);
+		}else if(mem[r][c] == 1) {
+			res = 1;
+			System.out.println(res);
+		}else if(mem[r][c] > 1) {
+			res = 1;
+			int len = Math.min(r, c);
+			root : for(int n = 1; n <= len - 1; n++) {
+				int m = (n + 1)*(n + 1);
+				for(int i = 1; i <= r - n; i++) {
+					int y = i + n;
+					for(int j = 1; j <= c - n; j++) {
+						int x = j + n;
+						int area = mem[y][x] + mem[y - n - 1][x - n - 1] - mem[y][x - n - 1] - mem[y - n - 1][x];
+						if(area == m) {
+							res = m;
+							continue root;
+						}
+					}
+
+				}
+			}
+			System.out.println(res);
+		}
+
+	}
+}

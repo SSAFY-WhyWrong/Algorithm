@@ -1,0 +1,63 @@
+import java.util.*;
+
+class Solution {
+    static char []arr= {'A', 'C', 'F', 'J', 'M', 'N', 'R', 'T'};
+    static boolean []ch;
+    static char []temp;
+    static int res;
+    public int solution(int n, String[] data) {
+        temp = new char[8];
+        ch = new boolean[8];
+        res = 0;
+        dfs(0, n, data);
+        
+        return res;
+    }
+    public void dfs(int len, int n, String[] data){
+        if(len == 8){
+           if(check(n, data)){
+            res++;
+           }
+            return;
+        }
+        for(int i = 0; i < 8; i++){
+            if(!ch[i]){
+            ch[i] = true;
+            temp[len] = arr[i];
+            dfs(len + 1, n, data);
+            ch[i] = false;
+            }
+        }
+    }
+    public boolean check(int n, String[] data){
+         for(int i = 0; i < n; i++){
+                char one = data[i].charAt(0);
+                char two = data[i].charAt(2);
+                char flag = data[i].charAt(3);
+                int num = data[i].charAt(4) - '0';
+                int o = 0;
+                int t = 0;
+                int d = 0;
+                for(int j = 0; j < 8; j++){
+                    if(temp[j] == one){
+                        o = j;
+                    }else if(temp[j] == two){
+                        t = j;
+                    }
+                }
+                
+                o = o - t;
+                if(o < 0)o *= -1;
+                o--;
+
+                if(flag == '='){
+	                    if(o != num)return false;
+	                }else if(flag == '<'){
+	                    if(!(o < num))return false;
+	                }else if(flag == '>'){
+	                    if(!(o > num))return false;
+	                }
+            }
+        return true;
+    }
+}
