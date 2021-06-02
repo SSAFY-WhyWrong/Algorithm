@@ -1,0 +1,20 @@
+class Solution {
+    public int[] solution(int brown, int yellow) {
+        int[] answer = new int[2];
+        
+        int s = brown + 4;
+        s = s / 2;
+        int m = 0;
+        int n = 0;
+        for(int i = 3; i <= s; i++){
+            m = s - i ;
+            if((m - 2 )* (i - 2) == yellow){
+                n = i;
+                break;
+            }
+        }
+        answer[0] = m;
+        answer[1] = n;
+        return answer;
+    }
+}
