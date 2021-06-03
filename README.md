@@ -1,12 +1,10 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (5월 3주차)
-* 프로그래머스 단체 사진 : https://programmers.co.kr/learn/courses/30/lessons/1835
-* 프로그래머스 카펫 : https://programmers.co.kr/learn/courses/30/lessons/42842
-* 백준 1915 가장 큰 정사각형 : https://www.acmicpc.net/problem/1915
-
-
+### :page_facing_up: 이번 주 과제 (6월 1주차)
+* 백준 중국 신분증 번호 https://www.acmicpc.net/problem/16196
+* 백준 두 동전 https://www.acmicpc.net/problem/16197
+* 프로그래머스 카카오프렌즈 컬러링 북 https://programmers.co.kr/learn/courses/30/lessons/1829
 
 ---
 
