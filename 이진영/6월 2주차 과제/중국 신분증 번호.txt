@@ -1,0 +1,126 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		StringTokenizer st;
+		String str = br.readLine();
+		String code = str.substring(0, 6);
+		String year = str.substring(6, 10);
+		String month = str.substring(10, 12);
+		String day = str.substring(12, 14);
+		String gender = str.substring(14, 17);
+		st = new StringTokenizer(br.readLine(), " ");
+		int r = Integer.parseInt(st.nextToken());
+		String []num = new String[r];
+		for(int i = 1; i <= r; i++) {
+			num[i - 1] = br.readLine();
+		}
+		int y = Integer.parseInt(year);
+		int m = Integer.parseInt(month);
+		int d = Integer.parseInt(day);
+		boolean check = false;
+		//System.out.println(y + " " +  m + " " + d);
+		if(!(y >= 1900 && y <= 2011))check = true;
+		
+		if(!(m >= 1 && m <= 12))check = true;
+		
+		switch(m) {
+			case 1 : 
+				if(!(d >= 1 && d<= 31))check = true;
+				break;
+			case 2 : 
+				if(((y % 4 == 0) && (y % 100 != 0)) || y % 400 == 0) {
+					if(!(d >= 1 && d<= 29))check = true;
+				}
+				else {
+					if(!(d >= 1 && d<= 28))check = true;
+				}
+				break;
+			case 3 : 
+				if(!(d >= 1 && d<= 31))check = true;
+				break;
+			case 4 : 
+				if(!(d >= 1 && d<= 30))check = true;
+				break;
+			case 5 : 
+				if(!(d >= 1 && d<= 31))check = true;
+				break;
+			case 6 : 
+				if(!(d >= 1 && d<= 30))check = true;
+				break;
+			case 7 : 
+				if(!(d >= 1 && d<= 31))check = true;
+				break;
+			case 8 : 
+				if(!(d >= 1 && d<= 31))check = true;
+				break;
+			case 9 : 
+				if(!(d >= 1 && d<= 30))check = true;
+				break;
+			case 10 : 
+				if(!(d >= 1 && d<= 31))check = true;
+				break;
+			case 11 : 
+				if(!(d >= 1 && d<= 30))check = true;
+				break;
+			case 12 : 
+				if(!(d >= 1 && d<= 31))check = true;
+				break;
+			default :
+				check = true;
+				break;
+		}
+		
+		
+		if(check) {
+			System.out.println("I");
+			return;
+		}
+		
+		boolean flag = false;
+		for(int i = 1; i <= r; i++) {
+			if(num[i - 1].equals(code))flag = true;
+			if(flag)break;
+		}
+		
+		if(!flag) {
+			System.out.println("I");
+			return;
+		}
+		
+		int sum = 0;
+		
+		for(int i = 0; i < 17; i++) {
+			sum += (str.charAt(i) - '0')*(1 << (17 - i));
+			sum %= 11;
+		}
+		
+		int temp = 0;
+		
+		if(str.charAt(17) >= '0' && str.charAt(17) <= '9')temp = str.charAt(17) - '0';
+		if(str.charAt(17) == 'X')temp = 10;
+		if((sum + temp) % 11 != 1) {
+			System.out.println("I");
+			return;
+		}
+		
+		int gen = Integer.parseInt(gender);
+		if(gen == 0) {
+			System.out.println("I");
+			return;
+		}
+
+		if(gen % 2== 0) {
+			System.out.println("F");
+		}else {
+			System.out.println("M");
+		}
+		
+		
+	}
+}

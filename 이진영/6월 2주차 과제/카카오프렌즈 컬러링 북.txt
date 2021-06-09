@@ -1,0 +1,59 @@
+import java.util.*;
+
+class Solution {
+    static int [] di = {0,1,0,-1};
+    static int [] dj = {1,0,-1,0};
+    public int[] solution(int m, int n, int[][] p) {
+        int numberOfArea = 0;
+        int maxSizeOfOneArea = 0;
+
+        int[] answer = new int[2];
+        boolean [][]cmap = new boolean[m][n];
+        for(int i =0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(p[i][j] == 0)cmap[i][j] = true;
+            }
+        }
+        int t = 0;
+        for(int i =0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(!cmap[i][j]){
+                    numberOfArea++;
+                    t = bfs(m, n, p, cmap, i, j);
+                    if(t > maxSizeOfOneArea)maxSizeOfOneArea = t;
+                }
+            }
+        }
+        answer[0] = numberOfArea;
+        answer[1] = maxSizeOfOneArea;
+        return answer;
+    }
+    static public int bfs(int m, int n, int[][] p, boolean[][] map, int ni, int nj){
+        int ans = 0;
+        int num = p[ni][nj];
+        Queue<Point> q = new LinkedList<>();
+        q.add(new Point(ni, nj));
+        while(!q.isEmpty()){
+            Point s = q.poll();
+            map[s.y][s.x] = true;
+            ans++;
+            for(int i = 0 ; i < 4; i++){
+                int sx = s.x + di[i];
+                int sy = s.y + dj[i];
+                if(sx < 0 || sx >= n || sy < 0 || sy>= m || map[sy][sx] || p[sy][sx] != num
+                  )continue;
+                map[sy][sx] = true;
+                q.add(new Point(sy, sx));
+            }
+        }
+        return ans;
+    }
+}
+class Point{
+    int y;
+    int x;
+    public Point(int y, int x){
+        this.y = y;
+        this.x = x;
+    }
+}
