@@ -1,10 +1,10 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (6월 1주차)
-* 백준 중국 신분증 번호 https://www.acmicpc.net/problem/16196
-* 백준 두 동전 https://www.acmicpc.net/problem/16197
-* 프로그래머스 카카오프렌즈 컬러링 북 https://programmers.co.kr/learn/courses/30/lessons/1829
+### :page_facing_up: 이번 주 과제 (6월 2주차)
+* 백준 겹치는 건 싫어 : https://www.acmicpc.net/problem/20922
+* 프로그래머스 N으로 표현 : https://programmers.co.kr/learn/courses/30/lessons/42895
+* 프로그래머스 징검다리 건너기 : https://programmers.co.kr/learn/courses/30/lessons/64062
 
 ---
 
