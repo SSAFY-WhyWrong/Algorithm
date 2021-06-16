@@ -1,0 +1,34 @@
+class Solution {
+    public int solution(int[] stone, int k) {
+        int answer = 0;
+        int max = 200000001;
+        int min = 0;
+      
+          answer = (max + min) / 2;
+        int []temp = new int[stone.length];
+        root : while(max >= min){
+          
+            for(int i = 0; i < stone.length; i++){
+                temp[i] = stone[i]; 
+            }
+            
+            for(int i = 0; i < stone.length; i++){
+                temp[i] -= answer;
+            }
+            int cnt = 0;
+            
+            for(int i = 0; i < stone.length; i++){
+                if(temp[i] <= 0)cnt++; 
+                else cnt = 0;
+                if(cnt >= k){
+                    max = answer - 1;
+                    answer = (max + min) / 2;
+                    continue root;
+                }           
+            }
+            min = answer + 1;
+            answer = (max + min) / 2;
+        }
+        return answer + 1;
+    }
+}

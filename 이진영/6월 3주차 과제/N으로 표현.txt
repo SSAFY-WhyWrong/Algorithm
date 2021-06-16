@@ -1,0 +1,30 @@
+class Solution {
+    static int n = 0;
+    static int ans = 2100000000;
+    public int solution(int N, int number) {
+        int answer = 0;
+        
+        dfs(N, number, 0, 0);
+        if(ans == 2100000000)ans = -1;
+        if(ans > 8)ans = -1;
+        return ans;
+    }
+    static void dfs(int N, int number, int num, int cnt){
+        if(cnt > 8){
+            ans = -1;
+            return;
+        }
+        if(num == number){
+            if(ans > cnt)ans = cnt;
+            return;
+        }
+        int tnum = N;
+        for(int i = 0; i < 8 - cnt; i++){
+            dfs(N, number, num + tnum, cnt + i+ 1);
+            dfs(N, number, num - tnum , cnt + i+ 1);
+            dfs(N, number, num / tnum, cnt + i+ 1);
+            dfs(N, number, num * tnum, cnt + i+ 1);
+            tnum = tnum * 10 + N;
+        }
+    }
+}
