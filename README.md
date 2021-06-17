@@ -1,10 +1,10 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (6월 2주차)
-* 백준 겹치는 건 싫어 : https://www.acmicpc.net/problem/20922
-* 프로그래머스 N으로 표현 : https://programmers.co.kr/learn/courses/30/lessons/42895
-* 프로그래머스 징검다리 건너기 : https://programmers.co.kr/learn/courses/30/lessons/64062
+### :page_facing_up: 이번 주 과제 (6월 3주차)
+* 백준 구간 나누기 : https://www.acmicpc.net/problem/2228
+* 백준 개똥벌레 : https://www.acmicpc.net/problem/3020
+* 프로그래머스 이중우선순위큐 : https://programmers.co.kr/learn/courses/30/lessons/42628
 
 ---
 
