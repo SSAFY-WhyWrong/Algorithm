@@ -1,10 +1,10 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (6월 3주차)
-* 백준 구간 나누기 : https://www.acmicpc.net/problem/2228
-* 백준 개똥벌레 : https://www.acmicpc.net/problem/3020
-* 프로그래머스 이중우선순위큐 : https://programmers.co.kr/learn/courses/30/lessons/42628
+### :page_facing_up: 이번 주 과제 (6월 4주차)
+* 백준 도토리 숨기기 : https://www.acmicpc.net/problem/15732
+* 백준 소수 경로 : https://www.acmicpc.net/problem/1963
+* 프로그래머스 문자열 압축 : https://programmers.co.kr/learn/courses/30/lessons/60057
 
 ---
 
