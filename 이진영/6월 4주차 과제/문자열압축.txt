@@ -1,0 +1,47 @@
+class Solution {
+   
+    public int solution(String s) {
+        int len = s.length();
+        int answer = len;
+        if(len == 1)return 1;
+        String temp;
+        
+        for(int i = 1; i = len  2 + 1 ; i++){
+            int size = 0;
+            int k = 1;
+            boolean flag = true;
+            temp = s.substring(0, i);
+            String ans = ;
+            for(int j = i; j = len - i; j += i){
+
+                String str = s.substring(j, j + i);
+                if(temp.equals(str)){
+                    temp = str;
+                    k++;
+                }else{
+                    if(k = 2) ans += (k);
+                    ans += temp;
+                    
+                    temp = str;
+                    if(k = 2)size++;
+                    size += i;
+                    
+                    k = 1;
+                }
+                System.out.println(size);
+            }
+            if(k = 2) ans += (k);
+            ans += temp;
+            
+            if(k = 2)size++;
+            size += i;
+            k = 0;
+            ans += s.substring((len  i)  i);
+            size += len % i;
+            size += s.substring((len  i)  i).length();
+            System.out.println(ans);
+            if(ans.length()  answer)answer = ans.length() ;
+        }
+        return answer;
+    }
+}
