@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class 문자열압축 {
 
-	public static void main(String[] args) throws IOException {
+	 public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		System.out.println(solution(
 				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
