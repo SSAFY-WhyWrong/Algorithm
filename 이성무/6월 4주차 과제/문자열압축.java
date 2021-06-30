@@ -55,6 +55,6 @@ public class 문자열압축 {
 		} else {
 			answer += (sb.length());
 		}
-		return answer;
+		 return answer;
 	}
 }
