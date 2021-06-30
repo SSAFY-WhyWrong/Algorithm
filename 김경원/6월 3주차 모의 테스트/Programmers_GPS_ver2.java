@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Programmers_GPS_ver2 {
@@ -62,7 +63,9 @@ public class Programmers_GPS_ver2 {
         for(int before : edge[end]) {
         	dp[k-1][end] = Math.min(dp[k-2][before], dp[k-1][end]);
         }
-        
+        for (int i = 0; i < dp.length; i++) {
+			System.out.println(Arrays.toString(dp[i]));
+		}
         
         answer = dp[k-1][end];
         if(answer == 100)
