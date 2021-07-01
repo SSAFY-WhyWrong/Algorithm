@@ -1,10 +1,10 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (6월 4주차)
-* 백준 도토리 숨기기 : https://www.acmicpc.net/problem/15732
-* 백준 소수 경로 : https://www.acmicpc.net/problem/1963
-* 프로그래머스 문자열 압축 : https://programmers.co.kr/learn/courses/30/lessons/60057
+### :page_facing_up: 이번 주 과제 (7월 1주차)
+* 백준 주사위 굴리기 : https://www.acmicpc.net/problem/14499
+* 프로그래머스 파일명 정렬(카카오) : https://programmers.co.kr/learn/courses/30/lessons/17686
+* 프로그래머스 방금 그 곡(카카오) : https://programmers.co.kr/learn/courses/30/lessons/17683
 
 ---
 
@@ -12,13 +12,16 @@
 * 과제는 가급적이면 모이기 전 날까지 올릴 수 있도록 한다. 
 * 과제의 경우 문제 풀이를 반드시 정리한다
 * 과제는 기본적으로 주어진 문제 3개 + 자율 문제 2개
+* 반드시 월요일 오전 9시전까지 git에 push 해놓고 pull request 까지 해놓을 것
+* 다른 사람 Pull Request 보고 코멘트 하나 이상 달기
+* Merge는 팀장이 스터디 직전에 일괄적으로 하겠음
 
 ---
 
 ### :clock830: 스터디 시간
-* 매 주 수요일 8시 30분 ~ 12시
+* 매 주 월요일 9시
 	* 과제 질문
-	* 3시간동안 모의 코딩 테스트
+	
 
 ---
 
