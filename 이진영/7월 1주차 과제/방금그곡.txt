@@ -1,0 +1,86 @@
+class Solution {
+    public String solution(String m, String[] music) {
+        String answer = "";
+        String mm = new String();
+        
+        for(int i = 0; i < m.length(); i++){
+            char a = m.charAt(i);
+            if(a == '#'){
+               
+                char b = mm.charAt(mm.length() - 1);
+                String ss = new String();
+                ss += (char)(b+32);
+                String tt = new String();
+                tt += b;
+                tt += '#';
+               // System.out.println(tt + " " + ss);
+                mm += a;
+                mm = mm.replace(tt, ss);
+                
+            }
+            else
+            mm += a;
+        }
+        //System.out.println(mm);
+        
+        int len = music.length;
+        int max = 0;
+        
+        for(String str : music){
+            String []arr = str.split(",");
+            int start = ((arr[0].charAt(0) - '0') * 10 + (arr[0].charAt(1) - '0')) * 60 +  
+                ((arr[0].charAt(3) - '0') * 10 + (arr[0].charAt(4) - '0'));
+            int end = ((arr[1].charAt(0) - '0') * 10 + (arr[1].charAt(1) - '0')) * 60 +  
+                ((arr[1].charAt(3) - '0') * 10 + (arr[1].charAt(4) - '0'));
+            int length = end - start;
+            //if(length <= 0)continue;
+           //System.out.println(start + " " + end);
+            
+            String temp = new String();
+            
+            
+             for(int i = 0; i < arr[3].length(); i++){
+                char a = arr[3].charAt(i);
+                if(a == '#'){
+               
+                char b = temp.charAt(temp.length() - 1);
+                String ss = new String();
+                ss += (char)(b+32);
+                String tt = new String();
+                tt += b;
+                tt += '#';
+                //System.out.println(tt + " " + ss);
+                temp += a;
+                temp = temp.replace(tt, ss);
+                
+                }
+                else
+                temp += a;
+            }
+           
+            //System.out.println(temp);
+            String temp2 = new String();
+           // if(length < temp.length()){
+                for(int i = 0; i < length; i++){
+                    temp2 += temp.charAt(i % temp.length());
+                }
+            // }
+            // else{
+            //     start = start % temp.length();
+            //     if(start != 0)start++;
+            //     for(int i = start; i < start + length; i++){
+            //         temp2 += temp.charAt( i % temp.length() );
+            //     }
+            // }
+            //System.out.println(start + " " + temp2 + " " + temp + " " );
+            if(temp2.contains(mm)){
+                if(max < length){
+                    max = length;
+                    answer = arr[2];
+                }
+            }
+        }
+        if(answer.equals(""))answer = "(None)";
+        return answer;
+    }
+}
