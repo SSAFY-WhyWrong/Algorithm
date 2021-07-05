@@ -1,0 +1,70 @@
+import java.util.*;
+
+class Solution {
+    public String[] solution(String[] files) {
+        int len = files.length;
+        String[] answer = new String[len];
+        line []arr = new line[len];
+        int num = 0;
+        for(String str : files){
+            int j = 0;
+            
+            String temp1 = new String();
+            for(int i = j; i < str.length(); i++){
+                if((str.charAt(i) >= '0' && str.charAt(i) <= '9')){
+                    j = i;
+                    break;
+                }
+   
+                if(str.charAt(i) >= 'A' && str.charAt(i) <= 'Z')
+                temp1 += (char)(str.charAt(i) - 'A' + 'a');
+                else {
+                      temp1 += str.charAt(i);
+                }
+            }
+           
+            String temp2 = new String();
+            int slen = 0;
+            for(int i = j; i < str.length(); i++){
+                if(!(str.charAt(i) >= '0' && str.charAt(i) <= '9') || slen >= 5){
+                    j = i;
+                    break;
+                }
+                temp2 += str.charAt(i);
+                slen++;
+            }
+            
+
+            arr[num] = new line(temp1, temp2, num);
+            num++;
+        }
+        
+        Arrays.sort(arr, (line p1, line p2) -> {
+            int sn = p1.s1.compareTo(p2.s1);
+            if(sn != 0)return sn;
+            int snum1 = Integer.parseInt(p1.s2);
+            int snum2 = Integer.parseInt(p2.s2);
+            
+           // if(snum1 != snum2)
+             return snum1 - snum2;
+            //return p2.s3.compareTo(p1.s3);
+        }); 
+        //System.out.println(Arrays.toString(arr));
+        for(int i = 0; i < len; i++){
+            answer[i] = files[arr[i].index];
+        }
+        return answer;
+    }
+}
+class line{
+    String s1;
+    String s2;
+    int index;
+    
+    public line(String s1, String s2, int index){
+        this.s1 = s1;
+        this.s2 = s2;
+        this.index = index;
+    }
+    
+}
