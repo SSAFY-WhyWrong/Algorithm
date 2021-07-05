@@ -1,0 +1,17 @@
+# Description
+
+### 1.주사위 굴리기
+- 주사위를 굴릴 때 top,up,right,left,down,bottom 위치에 따라 나눈 후 숫자로 구분
+    - top[1], up[2], right[3], left[4], down[5], botton[6]
+- 주사위를 굴릴 때마다 위치 변경
+- map을 움직이면서 바뀌는 값은 무조건 dice[6], 출력되는 값은 무조건 dice[1]
+
+
+### 2. 파일명 정렬
+- 첫 문자열, 첫 숫자를 따로 뺄 때 반복문에서 idx가 아닌 i를 따로 두고 돌리면 오류(NumberFormatException)
+- for 반복문에서 초기 인덱스 값 없이 돌리기
+- head, number, tail을 나눌 때 number를 숫자로 변환한 채로 클래스 배열에 담으면 숫자 앞에 들어가는 "0"이 사라지므로 주의!
+
+
+### 3. 방금 그곡
+- NOT SOLVED
