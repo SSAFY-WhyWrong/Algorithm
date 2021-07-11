@@ -1,0 +1,49 @@
+import java.util.*;
+class Solution {
+    public String[] solution(String[] record) {
+        String[] answer;
+        int len = record.length;
+        int anslen = len;
+        //answer = new String[len];
+        String[][] str= new String [len][4];
+        int i = 0;
+        for(String s : record){
+            str[i] = s.split(" ");
+            i++;
+        }
+        HashMap<String, String> map = new HashMap<String, String>();
+        for(i = 0; i < len; i++){
+            if(str[i][0].charAt(0) == 'E'){
+                map.put(str[i][1], str[i][2]);
+            }
+            else if(str[i][0].charAt(0) == 'C'){
+                map.put(str[i][1], str[i][2]);
+                anslen--;
+            }
+        }
+        answer = new String[anslen];
+        StringBuilder sb;
+		sb = new StringBuilder();
+        int j = 0;
+         for(i = 0; i < len; i++){
+            if(str[i][0].charAt(0) == 'E'){
+              sb.append(map.get(str[i][1]));
+                sb.append("님이 들어왔습니다.");
+                answer[j] = sb.toString();
+                sb.delete(0, sb.length());
+                    j++;
+            }
+            else if(str[i][0].charAt(0) == 'L'){
+                sb.append(map.get(str[i][1]));
+                sb.append("님이 나갔습니다.");
+                answer[j] = sb.toString();
+                sb.delete(0, sb.length());
+                j++;
+            }
+             
+        }
+        
+        
+        return answer;
+    }
+}
