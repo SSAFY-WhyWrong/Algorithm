@@ -1,0 +1,122 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+	static int [] di = {0,0,-1,1};
+	static int [] dj = {1,-1,0,0};
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		StringTokenizer st;
+		
+		st = new StringTokenizer(br.readLine(), " ");
+		
+		int r = Integer.parseInt(st.nextToken());
+		int c = Integer.parseInt(st.nextToken());
+		int turn = Integer.parseInt(st.nextToken());
+		int [][]won = new int[r][c];
+		
+		for(int i = 0 ; i < r; i++) {
+			st = new StringTokenizer(br.readLine(), " ");
+			for(int j = 0 ; j < c; j++) {
+				won[i][j] = Integer.parseInt(st.nextToken());
+			}
+		}
+		int [][]temp;
+		boolean [][]ch;
+		for(int i = 0 ; i < turn; i++) {
+			st = new StringTokenizer(br.readLine(), " ");
+			
+			int x = Integer.parseInt(st.nextToken());
+			int d = Integer.parseInt(st.nextToken());
+			if(d == 0) d = 1;
+			else d = -1;
+			int K = Integer.parseInt(st.nextToken());
+			temp = new int[r][c];
+			ch = new boolean[r][c];
+			
+			// 회전
+			for(int j = 0; j < r; j ++) {
+				if((j  + 1) % x == 0)
+				for(int k = 0; k < c; k++) {
+					int xt = (k + K * d) % c;
+					if(xt < 0)xt = c + xt;
+					temp[j][xt] = won[j][k];
+				}
+				else {
+					for(int k = 0; k < c; k++) {
+						temp[j][k] = won[j][k];
+					}
+				}
+			}
+			// 삭제
+			boolean as = false;
+			for(int j = 0; j < r; j++) {
+				for(int k = 0; k < c; k++) {
+					for(int ii = 0; ii < 4; ii++) {
+						int yy = j + di[ii];
+						int xx = (k + dj[ii]) % c;
+						if(xx < 0)xx = c + xx;
+						if(yy < 0 || yy >= r || temp[j][k] == 0)continue;
+						if(temp[j][k] == temp[yy][xx]) {
+							ch[j][k] = true;
+							as = true;
+							break;
+						}
+						
+					}
+				}
+			}
+	
+			for(int j = 0; j < r; j++) {
+				for(int k = 0; k < c; k++) {
+					if(!ch[j][k]) {
+						won[j][k] = temp[j][k];
+					}else {
+						won[j][k] = 0;
+					}
+				}
+			}
+			// 삭제 예외
+			if(!as) {
+				double res = 0;
+				int sd = 0;
+				for(int j = 0; j < r; j++) {
+					for(int k = 0; k < c; k++) {
+						if(won[j][k] > 0) {
+							res += won[j][k];
+							sd++;
+							
+						}
+						
+					}
+				}
+				res /= sd;
+				for(int j = 0; j < r; j++) {
+					for(int k = 0; k < c; k++) {
+						if(won[j][k] == 0) continue;
+						if(won[j][k] > res) {
+							won[j][k]--;
+							
+						}else if(won[j][k] < res) {
+							won[j][k]++;
+							
+						}
+						
+					}
+				}
+			}
+			
+		}
+		int answer = 0;
+		for(int i = 0 ; i < r; i++) {
+			for(int j = 0 ; j < c; j++) {
+				
+				answer += won[i][j];  
+			}
+		}
+		System.out.println(answer);
+	}
+}

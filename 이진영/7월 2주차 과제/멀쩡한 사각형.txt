@@ -1,0 +1,18 @@
+import java.util.*;
+class Solution {
+    public long solution(int w, int h) {
+        long answer = 1;
+        int r = GCD(w,h);
+        int a = w / r;
+        int b = h / r;
+        answer = (long)w * (long)h - (a + b  - 1)* r;
+        
+        return answer;
+    }
+    static int GCD(int a, int b){
+        if (a % b == 0){
+            return b;
+        }
+        return GCD(b, a % b);
+    }
+}
