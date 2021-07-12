@@ -1,10 +1,10 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (7월 2주차)
-* 백준 원판 돌리기 : https://www.acmicpc.net/problem/17822
-* 프로그래머스 크레인 인형뽑기(카카오) : https://programmers.co.kr/learn/courses/30/lessons/64061
-* 프로그래머스 가장 먼 노드 : https://programmers.co.kr/learn/courses/30/lessons/49189
+### :page_facing_up: 이번 주 과제 (7월 3주차)
+* 백준 내려가기 : https://www.acmicpc.net/problem/2096
+* 프로그래머스 캐시 : https://programmers.co.kr/learn/courses/30/lessons/17680
+* 프로그래머스 미로 탈출 : https://programmers.co.kr/learn/courses/30/lessons/81304
 
 ---
 
