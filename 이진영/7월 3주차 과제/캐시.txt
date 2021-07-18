@@ -1,0 +1,66 @@
+import java.util.*;
+
+class Solution {
+    public int solution(int cacheSize, String[] cities) {
+        int answer = 0;
+        Queue<String> q = new LinkedList<>();
+        
+        for(String str : cities){
+            str = str.toLowerCase();
+            //System.out.println(str);
+            if(q.isEmpty() || cacheSize == 0){
+                q.add(str);
+                answer+=5;
+            }else if(q.size() < cacheSize) {
+                int size = q.size();
+                boolean flag = false;
+              
+                
+                for(int i = 0 ; i < size; i++){
+                    String temp = q.poll();
+                    
+                    if(!flag && temp.equals(str)){
+                        flag = true;
+              
+                    }else {
+                        q.add(temp);
+                    }
+                }
+                
+                if(flag){
+                    q.add(str);
+                    answer+=1;
+                }else {
+                    q.add(str);
+                    answer+=5;
+                }
+                
+                
+            }else if(q.size() >= cacheSize){
+                int size = q.size();
+                boolean flag = false;
+                
+                for(int i = 0 ; i < size; i++){
+                    String temp = q.poll();
+                    if(!flag && temp.equals(str)){
+                        flag = true;
+                    }else {
+                        q.add(temp);
+                    }
+                }
+                
+                if(flag){
+                    q.add(str);
+                    answer+=1;
+                }else {
+                    q.add(str);
+                    q.poll();
+                    answer+=5;
+                }
+            }
+            
+        }
+        
+        return answer;
+    }
+}
