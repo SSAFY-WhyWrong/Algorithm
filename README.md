@@ -1,10 +1,11 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (7월 3주차)
-* 백준 내려가기 : https://www.acmicpc.net/problem/2096
-* 프로그래머스 캐시 : https://programmers.co.kr/learn/courses/30/lessons/17680
-* 프로그래머스 미로 탈출 : https://programmers.co.kr/learn/courses/30/lessons/81304
+### :page_facing_up: 이번 주 과제 (7월 4주차)
+* 프로그래머스 배달 : https://programmers.co.kr/learn/courses/30/lessons/12978
+* 백준 이진수 게임 : https://www.acmicpc.net/problem/18112
+* 백준 외판원 순회 : https://www.acmicpc.net/problem/2098
+
 
 ---
 
