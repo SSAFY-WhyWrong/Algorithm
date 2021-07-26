@@ -1,0 +1,55 @@
+import java.util.*;
+class Solution {
+    public int solution(int N, int[][] road, int K) {
+        int answer = 0;
+        int [][]map = new int[N + 1][N + 1];
+        int start = 1;
+        int size = N;
+        for(int i = 0 ; i < road.length; i++){
+            if(map[road[i][0]][road[i][1]] == 0){
+                map[road[i][0]][road[i][1]] = road[i][2];
+                map[road[i][1]][road[i][0]] = road[i][2];
+            }
+            else if(map[road[i][0]][road[i][1]] > road[i][2]){
+                map[road[i][0]][road[i][1]] = road[i][2];
+                map[road[i][1]][road[i][0]] = road[i][2];
+            }
+        }
+        
+        int []distance = new int[N + 1];
+        boolean []visited = new boolean[N + 1];
+        
+        Arrays.fill(distance, Integer.MAX_VALUE);
+		distance[start] = 0;
+        
+        root : for (int i = 1; i <= size; i++) {
+			int min = Integer.MAX_VALUE;
+            int current = 0;
+            
+            for(int j = 1; j <= size; j++) {
+				if(!visited[j] && min > distance[j]) {
+					min = distance[j];
+					current = j;
+				}
+			}
+			visited[current] = true; //이번턴에 애가 경유지임!! current
+			//if(current == end)break; // 선택 정점이 도착정점이면 탈출
+			// step2. : 선택된 current를 경유지로 하여 아직 처리하지 않은 다른 정점으로의 최소비용 따져본다.
+			for(int j = 1; j <= size; j++) {
+				if(!visited[j] && map[current][j] != 0 && distance[j] > min + map[current][j]) {
+					distance[j] = min + map[current][j];
+                    //if(distance[j] >= K)break root;
+				}
+			}
+		}
+        // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
+       for(int i = 1 ; i <= N; i++){
+           if(distance[i] <= K){
+               answer++;
+              // System.out.print(i + " ");
+           }
+       }
+
+        return answer;
+    }
+}
