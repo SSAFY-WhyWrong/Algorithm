@@ -1,7 +1,7 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (7월 4주차)
+### :page_facing_up: 이번 주 과제 (7월 5주차)
 * 프로그래머스 후보키 : https://programmers.co.kr/learn/courses/30/lessons/42890
 * 프로그래머스 실패율 : https://programmers.co.kr/learn/courses/30/lessons/42889
 * 백준 스타트 택시 : https://www.acmicpc.net/problem/19238
