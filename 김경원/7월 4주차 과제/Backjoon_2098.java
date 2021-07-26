@@ -52,7 +52,7 @@ public class Backjoon_2098 {
 		
 		
 
-		System.out.println(TSP(0,0));
+		System.out.println(TSP(0,1));
 		
 
 
