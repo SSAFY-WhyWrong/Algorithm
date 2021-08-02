@@ -1,0 +1,47 @@
+import java.util.*;
+class Solution {
+    public int[] solution(int N, int[] stages) {
+        int len = stages.length;
+        int[] arr = new int[1000];
+        for(int num : stages){
+            arr[num]++;
+        }
+        int people = len;
+       Pair[] fail = new Pair[N];
+        for(int i = 0; i < N; i++){
+              fail[i] = new Pair(i + 1, 0);
+        }
+        
+        for(int i = 0; i < N; i++){
+            fail[i].fail = ((double)arr[i + 1] / people);
+            people -= arr[i + 1];
+            if(people == 0)break;
+        }
+
+        
+        Arrays.sort(fail, new Comparator<Pair>() {
+            @Override
+            public int compare(Pair o1, Pair o2) {
+                if(o1.fail > o2.fail)
+                    return -1;
+                else if(o1.fail == o2.fail)
+                    return 0;
+                else return 1;
+            }
+        });
+        int []answer = new int [N];
+        for(int i = 0; i < N; i++){
+            answer[i] = fail[i].num;
+        }
+        
+        return answer;
+    }
+}
+class Pair{
+    int num;
+    double fail;
+    Pair(int num, double fail){
+        this.num = num;
+        this.fail = fail;
+    }
+}
