@@ -1,0 +1,66 @@
+import java.util.*;
+class Solution {
+    static int row,col, check;
+    static ArrayList<Integer> answer;
+    static boolean []ch;
+    public int solution(String[][] rel) {
+        answer = new ArrayList<>();
+        check = 0;
+        row = rel.length; //6
+        col = rel[0].length; //4
+        ch = new boolean[col];
+        
+        HashMap<String,String> map = new HashMap<>();
+        
+        
+        // 모든 조합 만들기
+        for(int i = 1; i <= col; i++){
+            dfs(0,0,0, i, rel);
+        }
+
+        return answer.size();
+    }
+    static void dfs(int a, int b, int c, int d, String[][] rel){
+        if(d == c){
+            
+            HashSet<String> set = new HashSet<>();
+            int as = b;
+            // for(int j = 0; j < col;j++){
+            //         if(as%2 == 1 && ch[j])return;
+            //         as /= 2;
+            // }
+            for(int i = 0; i < row;i++){
+                as = b;
+                String str = "";
+                for(int j = 0; j < col;j++){
+                    if(as%2 == 1)str += rel[i][j];
+                    as /= 2;
+                }
+                set.add(str);
+            }
+            //System.out.println(b + " " + c);
+            if(set.size() == row && numcheck(b)){
+                answer.add(b);
+                as = b; 
+                for(int j = 0; j < col;j++){
+                    if(as%2 == 1) {
+                        ch[j] = true;
+                        check += 1 << j;
+                    }
+                    as /= 2;
+                }
+            }
+            return ;
+        }else if(a < col){
+
+            dfs(a + 1, b + (1 << a), c+ 1, d, rel);
+            dfs(a + 1, b, c, d, rel);
+        }
+    }
+    static boolean numcheck(int b){
+        for(int i = 0; i < answer.size();i++){
+            if((answer.get(i) & b) == answer.get(i))return false;
+        }
+        return true;
+    }
+}
