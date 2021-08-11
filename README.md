@@ -1,10 +1,10 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (8월 1주차)
-* 프로그래머스 다트 게임 : https://programmers.co.kr/learn/courses/30/lessons/17682
-* 백준 타일 채우기 : https://www.acmicpc.net/problem/2133
-* 백준 이차원 배열과 연산 : https://www.acmicpc.net/problem/17140
+### :page_facing_up: 이번 주 과제 (8월 2주차)
+* 프로그래머스 오픈채팅방 : https://programmers.co.kr/learn/courses/30/lessons/42888
+* 프로그래머스 여행경로 : https://programmers.co.kr/learn/courses/30/lessons/43164
+* 백준 두 용액 : https://www.acmicpc.net/problem/2470
 
 
 ---
