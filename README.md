@@ -1,10 +1,11 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (8월 2주차)
-* 프로그래머스 오픈채팅방 : https://programmers.co.kr/learn/courses/30/lessons/42888
-* 프로그래머스 여행경로 : https://programmers.co.kr/learn/courses/30/lessons/43164
-* 백준 두 용액 : https://www.acmicpc.net/problem/2470
+### :page_facing_up: 이번 주 과제 (8월 4주차)
+* 프로그래머스 메뉴 리뉴얼 : https://programmers.co.kr/learn/courses/30/lessons/72411
+* 프로그래머스 순위 검색 : https://programmers.co.kr/learn/courses/30/lessons/72412
+* 백준 잠수함 식별 : https://www.acmicpc.net/problem/2671
+* 프로그래머스 광고 삽입 : https://programmers.co.kr/learn/courses/30/lessons/72414
 
 
 ---
