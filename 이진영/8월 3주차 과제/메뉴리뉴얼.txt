@@ -1,0 +1,55 @@
+import java.util.*;
+
+class Solution {
+    public String[] solution(String[] orders, int[] course) {
+        HashMap<String, Integer> hm = new HashMap<>();
+        
+        for(String str: orders) {
+            char[] chars = str.toCharArray();
+            Arrays.sort(chars);
+            for(int i=0; i< course.length; i++) {
+                dfs(0, 0, course[i], chars, "", hm);
+            }
+        }
+        
+        int[] maxcourse = new int[course[course.length -1] +1];
+        for(String key: hm.keySet()) {
+            if(hm.get(key) >= 2) {
+                maxcourse[key.length()] = Math.max(hm.get(key), maxcourse[key.length()]);
+            }
+        }
+        
+        List<String> answerTemp = new ArrayList<>();
+        for(String key: hm.keySet()) {
+            for(int i=0; i< maxcourse.length; i++) {
+                if(maxcourse[i] == 0) continue;
+                if(key.length() == i && hm.get(key) == maxcourse[i]) {
+                    answerTemp.add(key);
+                }
+            }
+        }
+        
+        Collections.sort(answerTemp);
+        String[] answer = new String[answerTemp.size()];
+        int i=0;
+        for(String str: answerTemp) {
+            answer[i++] = str;
+        }
+        
+        
+        return answer;
+    }
+    
+     private static void dfs(int cnt, int num, int limit, char[] order, String result, HashMap<String, Integer> hm) {
+        if(cnt == limit) {
+            int n = 0;
+            if(hm.get(result) == null)n = 1;
+            else n = hm.get(result) + 1;
+            
+            hm.put(result, n);
+            return;
+        }
+        for(int i = num; i < order.length; i++)
+        dfs(cnt+1, i + 1, limit, order, result+order[i], hm);
+     }
+}
