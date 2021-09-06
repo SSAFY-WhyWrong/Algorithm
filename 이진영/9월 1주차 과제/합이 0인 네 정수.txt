@@ -1,0 +1,75 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		StringTokenizer st;
+
+		st = new StringTokenizer(br.readLine(), " ");
+
+		int K = Integer.parseInt(st.nextToken());
+
+		long [][]arr = new long[4][K];
+
+		for(int i = 0 ; i < K; i++){
+			st = new StringTokenizer(br.readLine(), " ");
+			arr[0][i] = Long.parseLong(st.nextToken());
+			arr[1][i] = Long.parseLong(st.nextToken());
+			arr[2][i] = Long.parseLong(st.nextToken());
+			arr[3][i] = Long.parseLong(st.nextToken());
+		}
+
+		long []arr1 = new long[K * K];
+		long []arr2 = new long[K * K];
+		int num = 0;
+		for(int i = 0 ; i < K; i++){
+			for(int j = 0 ; j < K; j++){
+				arr1[num] =  arr[0][i] + arr[1][j];
+				arr2[num] =  arr[2][i] + arr[3][j];
+				num++;
+			}
+		}
+		Arrays.sort(arr1);
+		Arrays.sort(arr2);
+		long ans = 0;
+		for(int i = 0; i < arr2.length; i++) {
+			int up = upper(arr1, -arr2[i]);
+			int low = lower(arr1, -arr2[i]);
+			
+			ans += (up - low);
+		}
+
+		System.out.println(ans);
+	}
+	static int upper(long[] arr, long find) {
+		int left = 0;
+		int right = arr.length;
+		while (left < right) {
+			int mid = (left + right) / 2;
+			if (arr[mid] <= find) {
+				left = mid + 1;
+			} else {
+				right = mid;
+			}
+		}
+		return right;
+	}
+
+	static int lower(long[] arr, long find) {
+		int left = 0;
+		int right = arr.length;
+		while (left < right) {
+			int mid = (left + right) / 2;
+			if (arr[mid] < find) {
+				left = mid + 1;
+			} else {
+				right = mid;
+			}
+		}
+		return right;
+	}
+}
