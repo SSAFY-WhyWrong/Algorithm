@@ -1,0 +1,1 @@
+1. 단계대로 stringbuilder와 string을 오가며 구현했다.
