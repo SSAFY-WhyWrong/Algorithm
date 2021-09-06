@@ -1,0 +1,64 @@
+import java.util.*;
+
+class Solution {
+    public String solution(String p) {
+        String answer = make(p);
+        return answer;
+    }
+    
+    public String make(String p) {
+        if(p.length() == 0)
+            return p;
+        
+        int idx, front = 0, end = 0;
+        for(idx = 0;idx < p.length();idx++) {
+            if(front != 0 && front == end) break;
+            
+            if(p.charAt(idx) == '(') {
+                front++;
+            } else {
+                end++;
+            }
+        }
+        
+        String u = p.substring(0, idx);
+        String v = "";
+        if(idx < p.length()) {
+            v = p.substring(idx);
+        }
+        
+        if(isPerfect(u)) {
+            u += make(v);
+            return u;
+        } else {
+            String tmp = "(" + make(v) + ")";
+            for(int i=1;i<u.length()-1;i++) {
+                if(u.charAt(i) == '(') {
+                    tmp += ')';
+                } else {
+                    tmp += '(';
+                }
+            }
+            
+            return tmp;
+        }
+    }
+    
+    public boolean isPerfect(String x) {
+        Stack<Character> stack = new Stack<>();
+        
+        for(int i=0;i<x.length();i++) {
+            if(stack.size() != 0 && x.charAt(i) == ')') {
+                stack.pop();
+            } else if(x.charAt(i) == '(') {
+                stack.add('(');
+            } else {
+                return false;
+            }
+        }
+        
+        if(stack.size() == 0)
+            return true;
+        return false;
+    }
+}
