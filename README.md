@@ -1,12 +1,10 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (9월 1주차)
-* 프로그래머스 신규 아이디 추천 : https://programmers.co.kr/learn/courses/30/lessons/72410
-* 프로그래머스 괄호 변환 : https://programmers.co.kr/learn/courses/30/lessons/60058
-* 백준 합이 0인 네 정수 : https://www.acmicpc.net/problem/7453
-* SQL DATETIME에서 DATE로 형 변환 : https://programmers.co.kr/learn/courses/30/lessons/59414
-* SQL 헤비 유저가 소유한 장소 : https://programmers.co.kr/learn/courses/30/lessons/77487
+### :page_facing_up: 이번 주 과제 (9월 3주차)
+* 프로그래머스 줄 서는 방법 : https://programmers.co.kr/learn/courses/30/lessons/12936
+* 백준 행성 탐사 : https://www.acmicpc.net/problem/5549
+* 백준 나이트 게임 : https://www.acmicpc.net/problem/16884
 
 
 ---
