@@ -1,0 +1,24 @@
+import java.util.*;
+class Solution {
+    public int[] solution(int n, long k) {
+        int[] answer = new int[n];
+        ArrayList<Integer> number = new ArrayList<>();
+        long sum = 1;
+ 
+        for(int i = 1 ; i <= n; i++){
+            sum *= i;
+            number.add(i);
+        }
+        k--; // k가 1부터 시작하기 때문에
+        //stem.out.println(k + " " + sum + " " + n);
+        int i = 0;
+        while(n > 0){
+            sum /= n;
+            answer[i++] = number.get((int) (k / sum));
+            number.remove((int) (k / sum));
+            k %= sum;
+            n--;
+        }
+        return answer;
+    }
+}
