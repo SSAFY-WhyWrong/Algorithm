@@ -1,10 +1,10 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (9월 5주차)
-* 프로그래머스 로또의 최고 순위와 최저 순위 : https://programmers.co.kr/learn/courses/30/lessons/77484
-* 백준 행성 터널 : https://www.acmicpc.net/problem/2887
-* 백준 앱 : https://www.acmicpc.net/problem/7579
+### :page_facing_up: 이번 주 과제 (10월 3주차)
+* 프로그래머스 124 나라의 숫자 : https://programmers.co.kr/learn/courses/30/lessons/12899
+* 백준 과제 : https://www.acmicpc.net/problem/13904
+* 백준 박스 채우기 : https://www.acmicpc.net/problem/1493
 
 
 ---
