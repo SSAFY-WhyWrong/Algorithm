@@ -1,9 +1,9 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (10월 3주차)
-* 프로그래머스 124 나라의 숫자 : https://programmers.co.kr/learn/courses/30/lessons/12899
-* 백준 과제 : https://www.acmicpc.net/problem/13904
+### :page_facing_up: 이번 주 과제 (10월 4주차)
+* 프로그래머스 큰 수 만들기 : https://programmers.co.kr/learn/courses/30/lessons/42883
+* 백준 로봇 시뮬레이션 : https://www.acmicpc.net/problem/2174
 * 백준 박스 채우기 : https://www.acmicpc.net/problem/1493
 
 
