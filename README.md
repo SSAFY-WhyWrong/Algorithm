@@ -1,10 +1,10 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (10월 4주차)
-* 프로그래머스 큰 수 만들기 : https://programmers.co.kr/learn/courses/30/lessons/42883
-* 백준 로봇 시뮬레이션 : https://www.acmicpc.net/problem/2174
-* 백준 박스 채우기 : https://www.acmicpc.net/problem/1493
+### :page_facing_up: 이번 주 과제 (10월 5주차)
+* 프로그래머스 기능 개발 : https://programmers.co.kr/learn/courses/30/lessons/42586
+* 백준 괄호 추가하기 : https://www.acmicpc.net/problem/16637
+* 백준 용액 : https://www.acmicpc.net/problem/2467
 
 
 ---
