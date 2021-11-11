@@ -1,10 +1,11 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (11월 1주차)
-* 프로그래머스 파보나치 수 : https://programmers.co.kr/learn/courses/30/lessons/12945
-* 백준 문자열 폭발 : https://www.acmicpc.net/problem/9935
-* 백준 색종이 붙이기 : https://www.acmicpc.net/problem/17136
+### :page_facing_up: 이번 주 과제 (11월 2주차)
+* 프로그래머스 N-Queen : https://programmers.co.kr/learn/courses/30/lessons/12952
+* 프로그래머스 정수 삼각형 : https://programmers.co.kr/learn/courses/30/lessons/43105
+* 백준 고층 건물 : https://www.acmicpc.net/problem/1027
+
 
 
 ---
