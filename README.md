@@ -1,10 +1,10 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (11월 2주차)
-* 프로그래머스 N-Queen : https://programmers.co.kr/learn/courses/30/lessons/12952
-* 프로그래머스 정수 삼각형 : https://programmers.co.kr/learn/courses/30/lessons/43105
-* 백준 고층 건물 : https://www.acmicpc.net/problem/1027
+### :page_facing_up: 이번 주 과제 (11월 3주차)
+* 프로그래머스 거리두기 확인하기 : https://programmers.co.kr/learn/courses/30/lessons/81302
+* 백준 K진 트리 : https://www.acmicpc.net/problem/11812
+* 백준 합분해 : https://www.acmicpc.net/problem/2225
 
 
 
