@@ -1,0 +1,51 @@
+import java.util.*;
+class Solution {
+    public String solution(String p) {
+        String answer = "";
+        answer = dfs(p);
+        return answer;
+    }
+    static String dfs(String str){
+        if("".equals(str) || Check(str))return str;
+        StringBuilder u = new StringBuilder();
+        StringBuilder v = new StringBuilder();
+        int num = 0;
+        boolean front = false;
+        for(int i = 0; i < str.length(); i++){
+            
+            char a = str.charAt(i);
+            if(a == '(')num++;
+            else if(a == ')')num--;
+            
+            if(num < 0)front = true;
+            
+            if(num == 0){
+                u.append(str.substring(0, i + 1));
+                v.append(str.substring(i + 1, str.length()));
+                break;
+            }
+        }
+        String answer;
+        //System.out.println(u.toString() + " " + v.toString());
+        if(Check(u.toString()))answer = u.toString() + dfs(v.toString());
+        else {
+            StringBuilder r = new StringBuilder();
+            String temp = u.toString();
+            for(int i = 1; i < temp.length() - 1; i++){
+                char a = temp.charAt(i);
+                if(a == '(')r.append(')');
+                else if(a == ')')r.append('(');
+            }
+            answer ="(" + dfs(v.toString())+ ")"+ r.toString()   ;
+        }
+        //System.out.println("ans" + answer);
+        return answer;
+    }
+    static private boolean Check(String str) {
+        Stack<Character> stack = new Stack<>();
+        for (char current : str.toCharArray())
+            if (!stack.isEmpty() && stack.peek() == '(' && current == ')') stack.pop();
+            else stack.push(current);
+        return stack.isEmpty();
+    }
+}

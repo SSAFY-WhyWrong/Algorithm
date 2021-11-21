@@ -1,0 +1,15 @@
+class Solution {
+    static int []arr;
+    public int solution(int n) {
+        int answer = 0;
+        arr = new int[100001];
+        answer = dfs(n);
+        return answer;
+    }
+    static int dfs(int n){
+        if(n == 0)return 0;
+        if(n == 1)return 1;
+        if(arr[n] != 0)return arr[n] % 1234567;
+        return arr[n] = (dfs(n - 1) + dfs(n - 2)) % 1234567;
+    }
+}

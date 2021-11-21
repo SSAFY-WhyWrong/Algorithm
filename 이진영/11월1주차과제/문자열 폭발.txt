@@ -1,0 +1,50 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String str = br.readLine();
+		String bomb = br.readLine();
+		
+		Stack<Character> ans = new Stack<>();
+		Stack<Character> temp = new Stack<>();
+		StringBuilder sb = new StringBuilder();
+		for(int i = 0 ; i < str.length(); i++) {
+			char a = str.charAt(i);
+			ans.add(a);
+			
+			if(a == bomb.charAt(bomb.length() - 1) && ans.size() >= bomb.length()) {
+				sb = new StringBuilder();
+				boolean flag = false;
+				for(int j = 0; j < bomb.length(); j++) {
+					temp.add(ans.pop());
+				}
+				for(int j = 0; j < bomb.length(); j++) {
+					sb.append(temp.pop());
+				}
+				String ss = sb.toString();
+				if(ss.equals(bomb)) {
+					flag = true;
+				}
+				if(!flag) {
+					for(int ii = 0; ii < ss.length(); ii++) {
+						ans.add(ss.charAt(ii));
+					}
+				}
+			}
+		}
+		int size = ans.size();
+		for(int i = 0; i < size; i++) {
+			temp.add(ans.pop());
+		}
+		size = temp.size();
+		sb = new StringBuilder();
+		while(!temp.isEmpty())
+			sb.append(temp.pop());
+		if(sb.length() == 0)sb.append("FRULA");
+		System.out.println(sb.toString());
+	}
+}

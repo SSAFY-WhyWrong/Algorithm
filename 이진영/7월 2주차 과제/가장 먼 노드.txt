@@ -1,0 +1,46 @@
+import java.util.*;
+
+class Solution {
+    public int solution(int n, int[][] edge) {
+        int answer = 0;
+        ArrayList<ArrayList<Integer>> list = new ArrayList<>();  
+        for(int i = 0 ; i <= n; i++){
+            list.add(new ArrayList<>());
+        }
+        int len = edge.length;
+        int []ans = new int[n + 1];
+       
+
+        for(int i = 0 ; i < len; i++){
+            list.get(edge[i][0]).add(edge[i][1]);
+            list.get(edge[i][1]).add(edge[i][0]);
+        }
+        
+        Queue<Integer> q = new LinkedList<>();
+        
+        q.add(1);
+        int r = 0;
+        while(!q.isEmpty()){
+            int size = q.size();
+            r++;
+            for(int i = 0; i < size; i++){
+                int num = q.poll();
+                if(ans[num] == 0){
+                    ans[num] = r;
+                    for(int j = 0; j < list.get(num).size(); j++){
+                        q.add(list.get(num).get(j));
+                    }
+                }
+            }
+        }
+        int max = 0;
+        for(int a : ans){
+            if(a > max){
+                max = a;
+                answer = 1;
+            }else if(a == max)answer++;
+        }
+
+        return answer;
+    }
+}

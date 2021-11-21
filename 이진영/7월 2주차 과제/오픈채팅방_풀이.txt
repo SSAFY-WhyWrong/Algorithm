@@ -1,0 +1,6 @@
+https://programmers.co.kr/learn/courses/30/lessons/42888
+
+1. spilt를 이용하여 단어별로 분리시켰다.
+2. Hashmap를 통하여 닉네임을 최신화 시켰다.
+3. 출력을 하며 최신화된 닉네임으로 변경시켜 값을 갱신시켰다.
+4. 시간 단축을 위해 charAt이나 Stringbuilder를 사용했는데 효과가 미미했다.

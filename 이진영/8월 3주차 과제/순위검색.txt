@@ -1,0 +1,34 @@
+import java.util.*;
+class Solution {
+    public int[] solution(String[] info, String[] query) {
+        int[] answer;
+        int len = info.length;
+        String [][] str = new String[len][5];
+        int []jumsu = new int[len];
+        
+        for(int i = 0; i < len; i++){
+            str[i] = info[i].split(" ");
+            //System.out.println(str[i][0]);
+            jumsu[i] = Integer.parseInt(str[i][4]);
+        }
+        
+        int qlen = query.length;
+        answer = new int[qlen];
+        for(int i = 0; i < qlen; i++){
+            String[] ans = query[i].split(" ");
+            int num = 0;
+            for(int j = 0; j < len; j++){
+                if((jumsu[j] >= Integer.parseInt(ans[7])&&
+                    ("-".equals(ans[0]) || str[j][0].equals(ans[0])) &&
+                    ("-".equals(ans[2]) || str[j][1].equals(ans[2])) &&
+                   ("-".equals(ans[4]) || str[j][2].equals(ans[4])) &&
+                   ("-".equals(ans[6]) || str[j][3].equals(ans[6])) 
+                   )
+                  )
+                    num++;
+            }
+            answer[i] = num;
+        }
+        return answer;
+    }
+}

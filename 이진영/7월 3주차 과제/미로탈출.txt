@@ -1,0 +1,111 @@
+import java.util.*;
+class Solution {
+
+    public int solution(int n, int start, int end, int[][] roads, int[] traps) {
+        ArrayList<link> []adj = new ArrayList[1001];
+        ArrayList<link> []rev = new ArrayList[1001];
+        
+        for(int i = 0; i < 1001; i++){
+            adj[i] = new ArrayList<>();
+            rev[i] = new ArrayList<>();
+        }
+        
+        int[] trapIndex = new int[n + 1];
+        for(int i = 0; i < traps.length; i++) {
+            trapIndex[traps[i]] = i+1;
+        }
+        
+        for(int i = 0; i < roads.length; i++){
+            adj[roads[i][0]].add(new link(roads[i][1], roads[i][2], trapIndex[roads[i][1]]));
+            rev[roads[i][1]].add(new link(roads[i][0], roads[i][2], trapIndex[roads[i][0]]));
+        }
+        
+        
+        ArrayList<ArrayList<Integer>> dist = new ArrayList<>();
+        for(int i = 0; i < n+1; i++){
+            dist.add(new ArrayList<>());
+            for(int j = 0; j < (1<<(traps.length+1)); j++)
+            dist.get(i).add(2100000000);
+        }
+        
+       PriorityQueue<state> pq = new PriorityQueue<>();
+        dist.get(start).set(0, 0);
+        //System.out.println( dist.get(start).get(0));
+        pq.add(new state(start, 0, 0));
+        
+        while(!pq.isEmpty()){
+            state st = pq.poll();
+            int from = st.from;
+            int d = st.dist;
+            int bit = st.bit;
+            if(dist.get(from).get(bit) < d) continue;
+            if(from == end) return d;
+            
+             for(link as : adj[from]) {
+                boolean valid = true;
+                int to = as.to;
+                int toDist = as.dist;
+                int toTrap = 0;
+                if(as.isTrap)toTrap = 1;
+                else toTrap = 0;
+                 
+                if(trapIndex[from] != 0 && (bit & (1 << trapIndex[from])) != 0) valid = !valid; // 현재위치 함정인지?
+                if(trapIndex[to] != 0 && (bit & (1 << trapIndex[to])) != 0) valid = !valid; // 가는 위치가 함정인지?
+                if(!valid) continue;
+                 
+                int nDist = d + toDist;
+                int nBit = (bit ^ (toTrap << trapIndex[to]));
+                if(dist.get(to).get(nBit) <= nDist) continue;
+                dist.get(to).set(nBit, nDist);
+                pq.add(new state(to, nDist, nBit));
+             }
+            
+            for(link as : rev[from]) {
+                boolean valid = false;
+                int to = as.to;
+                int toDist = as.dist;
+                int toTrap = 0;
+                if(as.isTrap)toTrap = 1;
+                else toTrap = 0;
+                
+                if(trapIndex[from] != 0 && (bit & (1 << trapIndex[from])) != 0) valid = !valid;
+                if(trapIndex[to] != 0 && (bit & (1 << trapIndex[to])) != 0) valid = !valid;
+                if(!valid) continue;
+                 
+                int nDist = d + toDist;
+                int nBit = (bit ^ (toTrap << trapIndex[to]));
+                if(dist.get(to).get(nBit) <= nDist) continue;
+                dist.get(to).set(nBit, nDist);
+                pq.add(new state(to, nDist, nBit));
+             }
+        }
+       return 0;
+    }
+}
+
+class state implements Comparable<state>{
+    int from, dist, bit;
+    public state(int ff, int dd, int b) {
+        this.from = ff;
+        this.dist = dd; 
+        this.bit = b;
+    }
+	@Override
+	public int compareTo(state o) {
+		// TODO Auto-generated method stub
+		return this.dist- o.dist;
+	}
+}
+
+class link {
+    int to, dist; 
+    boolean isTrap; 
+    link(int tt, int dd, int ii) {
+        this.to = tt;
+        this.dist = dd;
+        if(ii != 0)
+        this.isTrap = true;
+        else
+        this.isTrap = false;
+    }
+}

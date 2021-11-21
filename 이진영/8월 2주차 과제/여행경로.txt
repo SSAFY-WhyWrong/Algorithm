@@ -1,0 +1,43 @@
+import java.util.*;
+
+class Solution {
+    static String[] answer;
+    static String[] temp;
+    static int len;
+    static boolean []ch;
+    static boolean ans = false;
+    public String[] solution(String[][] tickets) {
+        len = tickets.length;
+        answer = new String[len + 1];
+        temp = new String[len + 1];
+        ch = new boolean[len + 1];
+        Arrays.sort(tickets, (s1, s2) -> {
+            return s1[1].compareTo(s2[1]);
+        });
+
+        temp[0] = "ICN";
+        dfs(len + 1, 0, tickets);
+        return answer;
+    }
+    static public void dfs(int d, int s, String[][] t){
+        if(ans)return;
+        if(d == s + 1){
+            ans = true;
+            for(int i = 0 ; i <= len; i++){
+               answer[i] = temp[i];
+            }
+            
+            return ;
+        }else {
+            for(int i = 0 ; i < len; i++){
+                if(temp[s].equals(t[i][0]) && !ch[i]){
+                    temp[s + 1] = t[i][1];
+                    ch[i] = true;
+                    dfs(d, s+ 1, t);
+                    ch[i] = false;
+                }
+            }
+        
+        }
+     }
+}

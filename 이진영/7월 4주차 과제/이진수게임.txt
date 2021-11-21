@@ -1,0 +1,69 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in);
+			String str1 = sc.nextLine();
+			int as = 1;
+			int num1 = 0;
+			for(int i = str1.length() - 1; i >= 0; i--) {
+				num1 += (str1.charAt(i) - '0') * as;
+				as *= 2;
+			}
+			int num2 = 0;
+			as = 1;
+			String str2 = sc.nextLine();
+			int len = str1.length()- 1;
+			
+			boolean []ch = new boolean[1 << 11];
+			for(int i = str2.length()- 1; i >= 0; i--) {
+				num2 += (str2.charAt(i) - '0') * as;
+				as *= 2;
+			}
+			//System.out.println(num1 + " " + num2);
+			Queue<Integer> q = new LinkedList<Integer>();
+			q.add(num1);
+			int number = 0;
+			root : while(!q.isEmpty()) {
+				int size = q.size();
+				
+				for(int i = 0; i < size; i++) {
+					int n = q.poll();
+					//System.out.println(n + " " + number);
+					if(n == num2) {
+						break root;
+					}
+					if(n != 0 && !ch[n - 1]) {
+						ch[n - 1] = true;
+						q.add(n - 1);
+					}
+					if(!ch[n + 1]) {
+						ch[n + 1] = true;
+						q.add(n + 1);
+					}
+					int length = 0;
+					for(int j = 0; j < 10; j++) {
+						if((n & (1 << j)) > 0 )length = j;
+					}
+					for(int j = 0; j < length; j++) {
+						if((n & ( 1 << j)) > 0) {
+							if(!ch[n & ~(1 << j)]) {
+								ch[n & ~(1 << j)] = true;
+								q.add(n & ~(1 << j));
+							}
+						}else {
+							if(!ch[(n | ( 1 << j))]) {
+								ch[(n | ( 1 << j))] = true;
+								q.add((n | ( 1 << j)));
+							}
+						}
+					
+					}
+				}
+				number++;
+			}
+			System.out.println(number);
+	}
+}

@@ -1,0 +1,68 @@
+import java.util.*;
+class Solution {
+    public String solution(String new_id) {
+        String answer = "";
+        StringBuilder sb = new StringBuilder();
+        char []chars = new_id.toLowerCase().toCharArray();
+        
+        for(int i = 0; i < chars.length; i++){
+            if( ('a' <= chars[i] && chars[i] <= 'z') || ('0' <= chars[i] && chars[i] <= '9') ||(chars[i] == '.') 
+               || (chars[i] == '_') ||(chars[i] == '-')){
+                sb.append(chars[i]);
+            }
+        }
+        StringBuilder sb1 = new StringBuilder();
+        Boolean flag = true;
+        for(int i = 0; i < sb.length(); i++){
+            char a = sb.charAt(i);
+            if( a == '.' && flag ){
+                sb1.append(a);
+                flag = false;
+            }else if(a != '.'){
+                sb1.append(a);
+                flag = true;
+            }
+        }
+        if(sb1.charAt(0) == '.')
+            sb1.replace(0, 1, "");
+        String str = new String();
+        
+        if(sb1.length() > 0 && sb1.charAt(sb1.length() - 1) == '.')
+            str = sb1.substring(0, sb1.length()-1);
+        else
+            str = sb1.substring(0, sb1.length());
+         sb1 = new StringBuilder(str);
+        StringBuilder sb2 = new StringBuilder();
+        //5단계
+        for(int i = 0; i < sb1.length(); i++){
+            if(sb1.charAt(i) == ' ')
+                sb2.append('a');
+            else
+                sb2.append(sb1.charAt(i));
+        }
+        if(sb2.length() == 0) sb2.append('a');
+        //6단계
+        StringBuilder sb3 = new StringBuilder();
+        int len = sb2.length()  <= 15 ? sb2.length() : 15;
+        for(int i = 0; i < len; i++){
+            sb3.append(sb2.charAt(i));
+        }
+        
+        if(sb3.length() > 0 && sb3.charAt(sb3.length() - 1) == '.')
+           str = sb3.substring(0, sb3.length()-1);
+         else
+            str = sb3.substring(0, sb3.length());
+        
+        System.out.println(str);
+        sb3 = new StringBuilder(str);
+        System.out.println(sb3.toString());
+        if(sb3.length() < 3){
+            int leng = sb3.length();
+            for(int i = 0; i < 3 - leng; i++)
+            sb3.append(sb3.charAt(leng - 1));
+        }
+        str = sb3.toString();
+        
+        return str;
+    }
+}

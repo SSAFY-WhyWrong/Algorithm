@@ -1,0 +1,105 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+import java.util.*;
+
+public class Main {
+	static int [] di = {0,1,0,-1};
+    static int [] dj = {1,0,-1,0};
+    static int r,c;
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		StringTokenizer st;
+		st = new StringTokenizer(br.readLine(), " ");
+		r = Integer.parseInt(st.nextToken());
+		c = Integer.parseInt(st.nextToken());
+		int [][]arr = new int[r][c];
+		Queue<Point> q = new LinkedList<>();
+		Queue<Integer> num = new LinkedList<>();
+		for(int i = 0; i < r; i++) {
+			st = new StringTokenizer(br.readLine(), " ");
+			String str = st.nextToken();
+			for(int j = 0; j < c; j++) {
+				char a = str.charAt(j);
+				if(a=='#') {
+					arr[i][j] = 1;
+				}
+				
+				if(a == 'o') {
+					q.add(new Point(i, j));
+				}
+			}
+		}
+		int ans = 0;
+		num.add(0);
+		while(true) {
+			Point s1 = q.poll();
+			Point s2 = q.poll();
+			ans = num.poll();
+			ans++;
+			if(ans >= 11) {
+				System.out.println(-1);
+				return;
+			}
+			 for(int i = 0 ; i < 4; i++){
+				 int sy1 = s1.y + di[i];
+				 int sx1 = s1.x + dj[i];
+				 int sy2 = s2.y + di[i];
+				 int sx2 = s2.x + dj[i];
+				 //System.out.println(sy1 + " " + sx1 + " " + sy2 + " " + sx2);
+				 if(outrange(sy1,sx1) && outrange(sy2,sx2))continue;
+				 if(outrange(sy1,sx1) || outrange(sy2,sx2)) {
+					 System.out.println(ans);
+					 return;
+				 }
+				 if(arr[sy1][sx1] == 1 || arr[sy2][sx2] == 1) {
+					 if(arr[sy1][sx1] == 1 && arr[sy2][sx2] == 1) {
+						 q.add(new Point(s1.y, s1.x));
+						 q.add(new Point(s2.y, s2.x));
+						 num.add(ans);
+					 }else if(arr[sy1][sx1] == 1) {
+						 q.add(new Point(s1.y, s1.x));
+						 if(s1.y == sy2 && s1.x == sx2) {
+							 q.add(new Point(s2.y, s2.x));
+						 }else {
+							 q.add(new Point(sy2, sx2));
+						 }
+						 num.add(ans);
+					 }else if(arr[sy2][sx2] == 1) {
+						 q.add(new Point(s2.y, s2.x));
+						 num.add(ans);
+						 if(s2.y == sy1 && s2.x == sx1) {
+							 q.add(new Point(s1.y, s1.x));
+						 }else {
+							 q.add(new Point(sy1, sx1));
+						 }
+					 }
+					 
+				 }else {
+					 q.add(new Point(sy1, sx1));
+					 q.add(new Point(sy2, sx2));
+					 num.add(ans);
+				 }
+				 
+				 //2개 아웃 확인
+				 
+			 }
+			 //return;
+		}
+		
+	}
+	static public boolean outrange(int sy, int sx) {
+		return (sx < 0 || sx >= c || sy < 0 || sy>= r);
+	}
+}
+
+class Point{
+    int y;
+    int x;
+    public Point(int y, int x){
+        this.y = y;
+        this.x = x;
+    }
+}
