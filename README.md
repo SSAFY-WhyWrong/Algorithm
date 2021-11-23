@@ -1,10 +1,10 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (11월 3주차)
-* 프로그래머스 거리두기 확인하기 : https://programmers.co.kr/learn/courses/30/lessons/81302
-* 백준 K진 트리 : https://www.acmicpc.net/problem/11812
-* 백준 합분해 : https://www.acmicpc.net/problem/2225
+### :page_facing_up: 이번 주 과제 (11월 4주차)
+* 프로그래머스 전화번호 목록 : https://programmers.co.kr/learn/courses/30/lessons/42577
+* 백준 캠프 준비 : https://www.acmicpc.net/problem/16938
+* 백준 카드 정렬하기 : https://www.acmicpc.net/problem/1715
 
 
 
