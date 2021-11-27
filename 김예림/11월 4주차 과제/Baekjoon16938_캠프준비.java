@@ -20,10 +20,6 @@ public class Baekjoon16938_캠프준비 {
 		R = Integer.parseInt(st.nextToken()); //문제 전체 난이도, R보다 작거나 같다
 		X = Integer.parseInt(st.nextToken()); //난이도 최솟값과 최댓값의 차이는 X보다 크거나 같다.
 		
-		//문제를 고르는 방법의 수
-		//최솟값 최댓값 안에 속하는 애들 중에 작은애들부터 최솟값으로 잡으면서 점점 거슬러 올라가기
-		//투포인터 => 난이도 최소최대차이 구해야하니까 우선 난이도 순으로 정렬...최소최대차이, 최소, 최대 ,,,다 어떻게 비교하즤 
-		//갯수가 아니라서 투포인터가 애매하긴 하넹
 		isSelected = new boolean[N];
 		question = new int[N];
 		st = new StringTokenizer(br.readLine()," ");
