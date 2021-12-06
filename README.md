@@ -1,10 +1,10 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (12월 1주차)
-* 프로그래머스 순위 : https://programmers.co.kr/learn/courses/30/lessons/49191
-* 백준 계단 수 : https://www.acmicpc.net/problem/1562
-* 백준 등산 : https://www.acmicpc.net/problem/1486
+### :page_facing_up: 이번 주 과제 (12월 2주차)
+* 프로그래머스 조이스틱 : https://programmers.co.kr/learn/courses/30/lessons/42860
+* 백준 보석 모으기: https://www.acmicpc.net/problem/1480
+* 백준 겹치는 선분 : https://www.acmicpc.net/problem/1689
 
 
 
