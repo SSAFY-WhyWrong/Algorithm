@@ -1,10 +1,10 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (12월 5주차)
-* 백준 이진수 : https://www.acmicpc.net/problem/2226
-* 백준 개미굴 : https://www.acmicpc.net/problem/14725
-* 백준 전구 끄기 : https://www.acmicpc.net/problem/14927
+### :page_facing_up: 이번 주 과제 (1월 2주차)
+* 백준 소형기관차 : https://www.acmicpc.net/problem/2616
+* 백준 빙산 : https://www.acmicpc.net/problem/2573
+* 백준 트리의 순회 : https://www.acmicpc.net/problem/2263
 
 
 
