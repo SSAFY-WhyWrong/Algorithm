@@ -1,10 +1,10 @@
 # 맞는데 왜 틀려 :question:
 ---
 
-### :page_facing_up: 이번 주 과제 (1월 3주차)
-* 백준 피자 굽기 : https://www.acmicpc.net/problem/1756
-* 백준 통학버스 : https://www.acmicpc.net/problem/2513
-* 백준 최솟값 찾기 : https://www.acmicpc.net/problem/11003
+### :page_facing_up: 이번 주 과제 (1월 4주차)
+* 백준 다리 만들기2 : https://www.acmicpc.net/problem/17472
+* 백준 공주님의 정원 : https://www.acmicpc.net/problem/2457
+* 백준 가장 높은 탑 쌓기 : https://www.acmicpc.net/problem/2655
 
 
 
